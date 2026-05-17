@@ -364,7 +364,8 @@ a {
 .standard-grid,
 .evidence-list,
 .archive-summary,
-.innovation-grid {
+.innovation-grid,
+.evidence-media-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 18px;
@@ -375,6 +376,7 @@ a {
 .evidence-list article,
 .archive-summary article,
 .innovation-grid article,
+.evidence-media-grid article,
 .research-card,
 .observation-card,
 .subjects,
@@ -399,6 +401,7 @@ a {
 .evidence-list article,
 .archive-summary article,
 .innovation-grid article,
+.evidence-media-grid article,
 .research-card,
 .observation-card,
 .subjects,
@@ -498,7 +501,44 @@ h3 {
 
 .score-card p,
 .standard-grid p,
-.evidence-list p {
+.evidence-list p,
+.evidence-media-grid p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.evidence-showcase {
+  display: grid;
+  grid-template-columns: minmax(240px, 0.42fr) minmax(0, 1fr);
+  gap: 22px;
+  align-items: center;
+  margin-top: 18px;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: #fbfcfa;
+  box-shadow: 0 12px 36px rgba(7, 26, 47, 0.06);
+}
+
+.evidence-showcase img {
+  display: block;
+  width: 100%;
+  max-height: 380px;
+  object-fit: cover;
+  object-position: center top;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #f6fafd;
+}
+
+.evidence-showcase span,
+.evidence-media-grid span {
+  color: var(--accent);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.evidence-showcase p {
   margin: 0;
   color: var(--muted);
 }
@@ -785,7 +825,7 @@ h3 {
 
 .result-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 12px;
 }
 
@@ -817,6 +857,29 @@ h3 {
 .archive-summary {
   grid-template-columns: repeat(4, minmax(0, 1fr));
   margin-bottom: 18px;
+}
+
+.evidence-media-grid {
+  margin-top: 18px;
+}
+
+.evidence-media-grid article {
+  overflow: hidden;
+  padding: 0;
+}
+
+.evidence-media-grid img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1.45 / 1;
+  object-fit: cover;
+  object-position: center top;
+  border-bottom: 1px solid var(--line);
+  background: #f6fafd;
+}
+
+.evidence-media-grid div {
+  padding: 20px;
 }
 
 .privacy-note {
@@ -990,7 +1053,8 @@ h3 {
   .research-layout,
   .cert-hero,
   .cockpit-hero,
-  .cockpit-explain-layout {
+  .cockpit-explain-layout,
+  .evidence-showcase {
     grid-template-columns: 1fr;
   }
 
@@ -999,6 +1063,7 @@ h3 {
   .archive-summary,
   .innovation-grid,
   .certificate-grid,
+  .evidence-media-grid,
   .cockpit-feature-grid {
     grid-template-columns: 1fr;
   }
