@@ -447,6 +447,120 @@ h3 {
   color: var(--muted);
 }
 
+.text-link {
+  display: inline-flex;
+  margin-top: 14px;
+  color: #006f95;
+  font-weight: 800;
+}
+
+.cert-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 220px;
+  gap: clamp(24px, 5vw, 64px);
+  align-items: end;
+  padding: clamp(56px, 8vw, 108px) clamp(20px, 5vw, 72px);
+  color: #fff;
+  background:
+    radial-gradient(circle at 80% 24%, rgba(56, 217, 255, 0.26), transparent 28%),
+    linear-gradient(135deg, #071a2f, #0b5c78);
+}
+
+.cert-hero h1 {
+  max-width: 900px;
+  margin: 0;
+  font-size: clamp(40px, 6vw, 76px);
+  line-height: 1.1;
+}
+
+.cert-hero p:not(.section-label) {
+  max-width: 840px;
+  margin: 20px 0 0;
+  color: rgba(236, 249, 255, 0.86);
+  font-size: 20px;
+}
+
+.cert-summary {
+  display: grid;
+  place-items: center;
+  min-height: 180px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(14px);
+}
+
+.cert-summary strong,
+.cert-summary span {
+  display: block;
+}
+
+.cert-summary strong {
+  font-size: 72px;
+  line-height: 1;
+}
+
+.cert-summary span {
+  color: rgba(236, 249, 255, 0.82);
+  font-weight: 800;
+}
+
+.certificate-toolbar {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 24px;
+}
+
+.certificate-toolbar h2 {
+  margin: 0;
+  font-size: clamp(30px, 4vw, 48px);
+}
+
+.certificate-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.certificate-card {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 12px 36px rgba(7, 26, 47, 0.08);
+}
+
+.certificate-card img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1.41 / 1;
+  object-fit: cover;
+  background: #f6fafd;
+  border-bottom: 1px solid var(--line);
+}
+
+.certificate-card div {
+  padding: 18px;
+}
+
+.certificate-card span {
+  color: var(--accent);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.certificate-card h3 {
+  margin-top: 6px;
+  font-size: 20px;
+}
+
+.certificate-card p {
+  margin: 0;
+  color: var(--muted);
+}
+
 .score-card.featured {
   color: #fff;
   background:
@@ -653,15 +767,22 @@ h3 {
   .hero,
   .teaching-layout,
   .score-layout,
-  .research-layout {
+  .research-layout,
+  .cert-hero {
     grid-template-columns: 1fr;
   }
 
   .standard-grid,
   .pa-domains ol,
   .archive-summary,
-  .innovation-grid {
+  .innovation-grid,
+  .certificate-grid {
     grid-template-columns: 1fr;
+  }
+
+  .certificate-toolbar {
+    align-items: flex-start;
+    flex-direction: column;
   }
 }
 
