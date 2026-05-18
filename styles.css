@@ -691,6 +691,42 @@ h3 {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
+.standard-grid strong {
+  display: inline-flex;
+  margin-top: 16px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  color: #0b6a58;
+  background: var(--leaf);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.sar-detail-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 18px;
+}
+
+.sar-detail-grid article {
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 12px 36px rgba(7, 26, 47, 0.06);
+  padding: 24px;
+}
+
+.sar-detail-grid span {
+  color: var(--gold);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.sar-detail-grid h3 {
+  font-size: 20px;
+}
+
 .innovation-grid {
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
@@ -1151,6 +1187,7 @@ h3 {
   .certificate-grid,
   .evidence-media-grid,
   .media-links,
+  .sar-detail-grid,
   .cockpit-feature-grid {
     grid-template-columns: 1fr;
   }
