@@ -435,6 +435,45 @@ h3 {
   gap: 18px;
 }
 
+.schedule-feature {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.4fr) minmax(0, 1fr);
+  gap: 22px;
+  align-items: center;
+  margin-bottom: 18px;
+  padding: 24px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background:
+    linear-gradient(135deg, rgba(56, 217, 255, 0.1), rgba(244, 184, 74, 0.08)),
+    #fff;
+  box-shadow: 0 12px 36px rgba(7, 26, 47, 0.06);
+}
+
+.schedule-copy span {
+  color: var(--accent);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.schedule-copy p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.schedule-image {
+  display: block;
+}
+
+.schedule-image img {
+  display: block;
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 12px 36px rgba(7, 26, 47, 0.08);
+}
+
 .tag-list {
   display: flex;
   flex-wrap: wrap;
@@ -1176,7 +1215,8 @@ h3 {
   .cockpit-hero,
   .cockpit-explain-layout,
   .evidence-showcase,
-  .media-follow {
+  .media-follow,
+  .schedule-feature {
     grid-template-columns: 1fr;
   }
 
