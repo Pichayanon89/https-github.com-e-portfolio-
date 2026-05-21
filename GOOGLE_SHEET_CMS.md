@@ -37,10 +37,12 @@
 เปิด `data/site-data.json` แล้วใส่ URL ที่ได้ในช่องนี้
 
 ```json
-"cmsApiUrl": "https://script.google.com/macros/s/xxxxx/exec"
+"cmsApiUrl": "https://script.google.com/macros/s/AKfycbzdQwWLqYbFFkWnsCQeMUX8F9brIWUsSKeBUcHskzfaqdhiv_xJSv9UVtB0SDVpw-Y/exec"
 ```
 
 หลังจากนั้น commit และ push ขึ้น GitHub Pages
+
+ถ้าเปิด URL แล้วขึ้นข้อความ `ไม่พบฟังก์ชันของสคริปต์: doGet` ให้กลับไปที่ Apps Script แล้ววางโค้ดจาก `cms/google-apps-script/Code.gs` จากนั้นกด `Deploy` > `Manage deployments` > แก้ไข deployment เดิม > เลือก version ใหม่ > `Deploy`
 
 ## วิธีแก้ข้อมูลประจำวัน
 
