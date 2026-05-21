@@ -37,7 +37,7 @@
 เปิด `data/site-data.json` แล้วใส่ URL ที่ได้ในช่องนี้
 
 ```json
-"cmsApiUrl": "https://script.google.com/macros/s/AKfycbzdQwWLqYbFFkWnsCQeMUX8F9brIWUsSKeBUcHskzfaqdhiv_xJSv9UVtB0SDVpw-Y/exec"
+"cmsApiUrl": "https://script.google.com/macros/s/AKfycbxNlKf-xcABHTfB4DkHndRf0MQlIVN656meemZMmdQERhoemtZi6EZ0UAWYkrsYyPrL/exec"
 ```
 
 หลังจากนั้น commit และ push ขึ้น GitHub Pages
