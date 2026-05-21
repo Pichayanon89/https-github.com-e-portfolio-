@@ -1,0 +1,48 @@
+{
+  "site": {
+    "title": "E-Portfolio | พิชญานนท์ วัจนสุนทร",
+    "publicUrl": "https://pichayanon89.github.io/SMT_2-4/",
+    "owner": "นายพิชญานนท์ วัจนสุนทร",
+    "school": "โรงเรียนอนุบาลหนองหานวิทยายน",
+    "role": "ครู ICT กลุ่มสาระการเรียนรู้วิทยาศาสตร์และเทคโนโลยี"
+  },
+  "links": {
+    "teacherCockpit": "https://pichayanon89.github.io/SMT_2-4/",
+    "quickRecord": "https://pichayanon89.github.io/lesson-records/index.html",
+    "evidenceDrive": "https://drive.google.com/drive/folders/1ELZQjnW-w_DBmxFeGt-btZoV7nbDqtgM",
+    "learningMediaDrive": "https://drive.google.com/drive/folders/1qFc3DKwR-usZ_2Tt2fElB3EMbRl0qjNE?usp=sharing",
+    "facebookMedia": "https://www.facebook.com/profile.php?id=61573553982676",
+    "tiktokMedia": "https://www.tiktok.com/@anubannonghan.channel"
+  },
+  "learningMediaFolders": [
+    {
+      "title": "การงาน ป.4",
+      "url": "https://drive.google.com/drive/folders/1ooB8kr9X9m1DePUUpzmlMbvaPfbkll9O"
+    },
+    {
+      "title": "วิทยาการคอม",
+      "url": "https://drive.google.com/drive/folders/1Y6Z8U4gpaqvFrT46dnTkGpQK4NMEhy8p"
+    },
+    {
+      "title": "คณิตสืบเสาะ ป.4/2",
+      "url": "https://drive.google.com/drive/folders/1y6oP4hg_PeGhpS9aEvPvW98PtgAdMUHF"
+    }
+  ],
+  "latestUpdates": [
+    {
+      "date": "2026-05-21",
+      "title": "ฝังเมนูสื่อการเรียนรู้จาก Google Drive",
+      "detail": "เพิ่มกรอบ Drive และรายการโฟลเดอร์ย่อยสำหรับสื่อการเรียนรู้"
+    },
+    {
+      "date": "2026-05-21",
+      "title": "เปลี่ยนลิงก์ Teacher Cockpit",
+      "detail": "อัปเดตปุ่มเปิดระบบไปยัง https://pichayanon89.github.io/SMT_2-4/"
+    },
+    {
+      "date": "2026-05-18",
+      "title": "เพิ่มตารางสอนเทอม 1 ปีการศึกษา 2569",
+      "detail": "แสดงตารางสอน SMT 4/2 และสรุปภาระสอน 14 คาบ/สัปดาห์"
+    }
+  ]
+}

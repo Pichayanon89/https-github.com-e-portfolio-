@@ -69,7 +69,7 @@
             <span>Digital Learning</span>
           </div>
           <div class="hero-actions">
-            <a class="button primary cockpit-cta" href="https://pichayanon89.github.io/SMT_2-4/" target="_blank" rel="noreferrer">เปิด Teacher Cockpit</a>
+            <a class="button primary cockpit-cta" data-link="teacherCockpit" href="https://pichayanon89.github.io/SMT_2-4/" target="_blank" rel="noreferrer">เปิด Teacher Cockpit</a>
             <a class="button secondary" href="teacher-cockpit.html">ดูรายละเอียดระบบ</a>
             <a class="button secondary" href="#evidence">ดูหลักฐานประกอบ</a>
           </div>
@@ -118,7 +118,7 @@
             และสัญญาณความเสี่ยงในหน้าเดียว
           </p>
           <div class="cockpit-actions">
-            <a class="button primary cockpit-cta" href="https://pichayanon89.github.io/SMT_2-4/" target="_blank" rel="noreferrer">เปิด Teacher Cockpit</a>
+            <a class="button primary cockpit-cta" data-link="teacherCockpit" href="https://pichayanon89.github.io/SMT_2-4/" target="_blank" rel="noreferrer">เปิด Teacher Cockpit</a>
             <a class="button secondary light" href="teacher-cockpit.html">อ่านรายละเอียดระบบ</a>
           </div>
         </div>
@@ -133,11 +133,35 @@
             ปัญหา แนวทางแก้ไข และแท็กหลักฐาน PA ให้พร้อมนำไปใช้ต่อ
           </p>
           <div class="cockpit-actions">
-            <a class="button primary cockpit-cta" href="https://pichayanon89.github.io/lesson-records/index.html" target="_blank" rel="noreferrer">เปิด Quick Record</a>
+            <a class="button primary cockpit-cta" data-link="quickRecord" href="https://pichayanon89.github.io/lesson-records/index.html" target="_blank" rel="noreferrer">เปิด Quick Record</a>
             <a class="button secondary light" href="quick-record.html">อ่านรายละเอียดระบบ</a>
           </div>
         </div>
         <img src="assets/quick-record-dashboard.svg" alt="ภาพตัวอย่างระบบ Quick Record" />
+      </section>
+
+      <section class="updates-strip" aria-labelledby="updates-title">
+        <div class="updates-heading">
+          <span>Latest Updates</span>
+          <h2 id="updates-title">อัปเดตล่าสุด</h2>
+        </div>
+        <div class="updates-grid" data-render="latest-updates">
+          <article>
+            <span>2026-05-21</span>
+            <h3>ฝังเมนูสื่อการเรียนรู้จาก Google Drive</h3>
+            <p>เพิ่มกรอบ Drive และรายการโฟลเดอร์ย่อยสำหรับสื่อการเรียนรู้</p>
+          </article>
+          <article>
+            <span>2026-05-21</span>
+            <h3>เปลี่ยนลิงก์ Teacher Cockpit</h3>
+            <p>อัปเดตปุ่มเปิดระบบไปยัง https://pichayanon89.github.io/SMT_2-4/</p>
+          </article>
+          <article>
+            <span>2026-05-18</span>
+            <h3>เพิ่มตารางสอนเทอม 1 ปีการศึกษา 2569</h3>
+            <p>แสดงตารางสอน SMT 4/2 และสรุปภาระสอน 14 คาบ/สัปดาห์</p>
+          </article>
+        </div>
       </section>
 
       <section class="section band" id="profile">
@@ -223,7 +247,7 @@
               เพื่อให้เข้าถึงได้สะดวกสำหรับการเตรียมสอนและใช้เป็นหลักฐานประกอบงานสอน
             </p>
           </div>
-          <a class="button primary cockpit-cta" href="https://drive.google.com/drive/folders/1qFc3DKwR-usZ_2Tt2fElB3EMbRl0qjNE?usp=sharing" target="_blank" rel="noreferrer">
+          <a class="button primary cockpit-cta" data-link="learningMediaDrive" href="https://drive.google.com/drive/folders/1qFc3DKwR-usZ_2Tt2fElB3EMbRl0qjNE?usp=sharing" target="_blank" rel="noreferrer">
             เปิดเมนูสื่อการเรียนรู้
           </a>
         </div>
@@ -234,7 +258,7 @@
             loading="lazy"
           ></iframe>
         </div>
-        <div class="drive-folder-list" aria-label="รายการโฟลเดอร์สื่อการเรียนรู้">
+        <div class="drive-folder-list" data-render="learning-media-folders" aria-label="รายการโฟลเดอร์สื่อการเรียนรู้">
           <a href="https://drive.google.com/drive/folders/1ooB8kr9X9m1DePUUpzmlMbvaPfbkll9O" target="_blank" rel="noreferrer">
             <span class="folder-icon small" aria-hidden="true"></span>
             <strong>การงาน ป.4</strong>
@@ -371,7 +395,7 @@
             <h3>SMT ป.4/2 · โรงเรียนอนุบาลหนองหานวิทยายน</h3>
             <p>ระบบติดตาม/จัดการข้อมูลการเรียนรู้สำหรับห้องเรียน SMT เชื่อมต่อผ่าน Google Apps Script ของหน่วยงาน</p>
             <div class="cockpit-card-actions">
-              <a href="https://pichayanon89.github.io/SMT_2-4/" target="_blank" rel="noreferrer">
+              <a data-link="teacherCockpit" href="https://pichayanon89.github.io/SMT_2-4/" target="_blank" rel="noreferrer">
                 เปิด Teacher Cockpit
               </a>
               <a href="teacher-cockpit.html">
@@ -384,7 +408,7 @@
             <h3>AI Teacher Workflow · บันทึกหลังสอน</h3>
             <p>ระบบบันทึกหลังสอนแบบรวดเร็ว ช่วยจัดหมวด K-P-A ปัญหา แนวทางแก้ไข และแท็กหลักฐาน PA จากบันทึกสั้น ๆ</p>
             <div class="cockpit-card-actions">
-              <a href="https://pichayanon89.github.io/lesson-records/index.html" target="_blank" rel="noreferrer">
+              <a data-link="quickRecord" href="https://pichayanon89.github.io/lesson-records/index.html" target="_blank" rel="noreferrer">
                 เปิด Quick Record
               </a>
               <a href="quick-record.html">
@@ -402,8 +426,8 @@
             <h3>หนังสั้นและสื่อประชาสัมพันธ์</h3>
             <p>มีส่วนร่วมผลิตสื่อภาพ วิดีโอ หนังสั้น และกิจกรรมสร้างสรรค์ที่เชื่อมโยงทักษะ ICT กับการสื่อสารของนักเรียน</p>
             <div class="social-actions">
-              <a href="https://www.facebook.com/profile.php?id=61573553982676" target="_blank" rel="noreferrer">บัวชมพูฟิล์ม</a>
-              <a href="https://www.tiktok.com/@anubannonghan.channel" target="_blank" rel="noreferrer">TikTok</a>
+              <a data-link="facebookMedia" href="https://www.facebook.com/profile.php?id=61573553982676" target="_blank" rel="noreferrer">บัวชมพูฟิล์ม</a>
+              <a data-link="tiktokMedia" href="https://www.tiktok.com/@anubannonghan.channel" target="_blank" rel="noreferrer">TikTok</a>
             </div>
           </article>
         </div>
@@ -417,17 +441,17 @@
             </p>
           </div>
           <div class="media-links" aria-label="ช่องทางติดตามสื่อประชาสัมพันธ์">
-            <a href="https://www.facebook.com/profile.php?id=61573553982676" target="_blank" rel="noreferrer">
+            <a data-link="facebookMedia" href="https://www.facebook.com/profile.php?id=61573553982676" target="_blank" rel="noreferrer">
               <strong>Facebook</strong>
               <span>บัวชมพูฟิล์ม</span>
             </a>
-            <a href="https://www.tiktok.com/@anubannonghan.channel" target="_blank" rel="noreferrer">
+            <a data-link="tiktokMedia" href="https://www.tiktok.com/@anubannonghan.channel" target="_blank" rel="noreferrer">
               <strong>TikTok</strong>
               <span>@anubannonghan.channel</span>
             </a>
           </div>
         </div>
-        <a class="drive-link" href="https://drive.google.com/drive/folders/1ELZQjnW-w_DBmxFeGt-btZoV7nbDqtgM" target="_blank" rel="noreferrer">
+        <a class="drive-link" data-link="evidenceDrive" href="https://drive.google.com/drive/folders/1ELZQjnW-w_DBmxFeGt-btZoV7nbDqtgM" target="_blank" rel="noreferrer">
           เปิดคลังหลักฐาน Google Drive
         </a>
       </section>
@@ -535,12 +559,12 @@
                 loading="lazy"
               ></iframe>
             </div>
-            <div class="mini-folder-list">
+            <div class="mini-folder-list" data-render="learning-media-folders-mini">
               <a href="https://drive.google.com/drive/folders/1ooB8kr9X9m1DePUUpzmlMbvaPfbkll9O" target="_blank" rel="noreferrer">การงาน ป.4</a>
               <a href="https://drive.google.com/drive/folders/1Y6Z8U4gpaqvFrT46dnTkGpQK4NMEhy8p" target="_blank" rel="noreferrer">วิทยาการคอม</a>
               <a href="https://drive.google.com/drive/folders/1y6oP4hg_PeGhpS9aEvPvW98PtgAdMUHF" target="_blank" rel="noreferrer">คณิตสืบเสาะ ป.4/2</a>
             </div>
-            <a class="folder-link" href="https://drive.google.com/drive/folders/1qFc3DKwR-usZ_2Tt2fElB3EMbRl0qjNE?usp=sharing" target="_blank" rel="noreferrer">
+            <a class="folder-link" data-link="learningMediaDrive" href="https://drive.google.com/drive/folders/1qFc3DKwR-usZ_2Tt2fElB3EMbRl0qjNE?usp=sharing" target="_blank" rel="noreferrer">
               <span class="folder-icon small" aria-hidden="true"></span>
               <span>เปิดโฟลเดอร์สื่อการเรียนรู้</span>
             </a>
@@ -578,5 +602,6 @@
       </p>
       <a href="#top">กลับด้านบน</a>
     </footer>
+    <script src="assets/site-data.js" defer></script>
   </body>
 </html>

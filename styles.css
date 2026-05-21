@@ -343,6 +343,52 @@ a {
   order: -1;
 }
 
+.updates-strip {
+  display: grid;
+  grid-template-columns: 260px minmax(0, 1fr);
+  gap: 18px;
+  padding: 34px clamp(20px, 5vw, 72px);
+  background: #fff;
+  border-bottom: 1px solid var(--line);
+}
+
+.updates-heading span,
+.updates-grid span {
+  color: var(--accent);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.updates-heading h2 {
+  margin: 6px 0 0;
+  font-size: clamp(28px, 3.2vw, 42px);
+  line-height: 1.15;
+}
+
+.updates-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.updates-grid article {
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #fbfcfa;
+  box-shadow: 0 8px 24px rgba(7, 26, 47, 0.05);
+}
+
+.updates-grid h3 {
+  margin-top: 6px;
+  font-size: 18px;
+}
+
+.updates-grid p {
+  margin: 0;
+  color: var(--muted);
+}
+
 .band {
   background:
     radial-gradient(circle at 90% 0%, rgba(0, 166, 214, 0.08), transparent 32%),
@@ -1377,6 +1423,7 @@ h3 {
 
   .hero,
   .cockpit-spotlight,
+  .updates-strip,
   .teaching-layout,
   .score-layout,
   .research-layout,
@@ -1398,6 +1445,7 @@ h3 {
   .media-links,
   .drive-folder-list,
   .sar-detail-grid,
+  .updates-grid,
   .cockpit-feature-grid {
     grid-template-columns: 1fr;
   }
