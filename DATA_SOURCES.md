@@ -23,6 +23,7 @@
 ## Google Drive ที่ตรวจเพิ่มเติม
 
 - โฟลเดอร์หลัก: `https://drive.google.com/drive/folders/1ELZQjnW-w_DBmxFeGt-btZoV7nbDqtgM`
+- เมนูสื่อการเรียนรู้ของครูพิชญานนท์: `https://drive.google.com/drive/folders/1qFc3DKwR-usZ_2Tt2fElB3EMbRl0qjNE?usp=sharing`
 - หมวดที่พบ: `ผลงาน 2568`, `STEM`, `WebApp`, `หนังสั้น2568`, `เกียรติบัตร`, `เยี่ยมบ้าน2568`
 - ข้อมูลที่นำมาสรุปในเว็บ: งาน STEM, WebApp, หนังสั้น/สื่อสร้างสรรค์ และคลังหลักฐานออนไลน์
 

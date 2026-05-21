@@ -474,6 +474,37 @@ h3 {
   box-shadow: 0 12px 36px rgba(7, 26, 47, 0.08);
 }
 
+.learning-media-panel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  margin-top: 18px;
+  padding: 24px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background:
+    linear-gradient(135deg, rgba(56, 217, 255, 0.12), rgba(25, 197, 138, 0.1)),
+    #fff;
+  box-shadow: 0 12px 36px rgba(7, 26, 47, 0.06);
+}
+
+.learning-media-panel span {
+  color: var(--accent);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.learning-media-panel p {
+  max-width: 760px;
+  margin: 0;
+  color: var(--muted);
+}
+
+.learning-media-panel .button {
+  flex: 0 0 auto;
+}
+
 .tag-list {
   display: flex;
   flex-wrap: wrap;
@@ -1269,6 +1300,11 @@ h3 {
   }
 
   .footer {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .learning-media-panel {
     align-items: flex-start;
     flex-direction: column;
   }
