@@ -1496,3 +1496,584 @@ h3 {
     grid-template-columns: 1fr;
   }
 }
+
+/* 2026 responsive technology portfolio system */
+:root {
+  --bg: #eef7fc;
+  --ink: #082036;
+  --muted: #5d7286;
+  --line: #cfe2ec;
+  --paper: #ffffff;
+  --accent: #008fc2;
+  --accent-dark: #061a2e;
+  --cyan: #32d9ff;
+  --green: #1fc894;
+  --gold: #f5bd3f;
+  --sky: #e9f7ff;
+  --leaf: #e7f9f2;
+  --shadow: 0 22px 70px rgba(6, 26, 46, 0.14);
+  --container: 1280px;
+}
+
+body {
+  background:
+    linear-gradient(180deg, rgba(232, 248, 255, 0.88), rgba(255, 255, 255, 0.86) 38%, rgba(235, 247, 252, 0.94)),
+    radial-gradient(circle at 15% 5%, rgba(50, 217, 255, 0.16), transparent 28%),
+    var(--bg);
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.32;
+  background-image:
+    linear-gradient(rgba(0, 143, 194, 0.09) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 143, 194, 0.09) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+.site-header {
+  gap: 18px;
+  padding: 12px max(18px, calc((100vw - var(--container)) / 2 + 18px));
+  background: rgba(244, 251, 255, 0.88);
+  box-shadow: 0 8px 30px rgba(6, 26, 46, 0.06);
+}
+
+.brand {
+  flex: 0 0 auto;
+  min-width: 270px;
+}
+
+.brand strong {
+  color: #071c31;
+  line-height: 1.25;
+}
+
+.nav {
+  flex: 1 1 auto;
+  gap: 8px;
+  overflow-x: auto;
+  flex-wrap: nowrap;
+  justify-content: flex-end;
+  padding: 2px 0 4px;
+  scrollbar-width: thin;
+}
+
+.nav a {
+  flex: 0 0 auto;
+  padding: 8px 10px;
+  border-radius: 8px;
+  color: #486175;
+  line-height: 1.2;
+}
+
+.nav a:hover,
+.nav a:focus-visible {
+  color: #063252;
+  background: rgba(50, 217, 255, 0.14);
+  outline: none;
+}
+
+.hero,
+.cockpit-hero,
+.cert-hero,
+.section,
+.cockpit-spotlight,
+.updates-strip,
+.quick-access,
+.footer {
+  padding-left: max(18px, calc((100vw - var(--container)) / 2 + 18px));
+  padding-right: max(18px, calc((100vw - var(--container)) / 2 + 18px));
+}
+
+.hero {
+  grid-template-columns: minmax(0, 0.94fr) minmax(340px, 0.7fr);
+  min-height: min(820px, calc(100vh - 70px));
+  padding-top: clamp(58px, 8vw, 112px);
+  padding-bottom: clamp(86px, 9vw, 132px);
+  background:
+    radial-gradient(circle at 78% 20%, rgba(50, 217, 255, 0.24), transparent 29%),
+    radial-gradient(circle at 18% 92%, rgba(31, 200, 148, 0.22), transparent 26%),
+    linear-gradient(135deg, #06172a 0%, #0a2846 48%, #075c79 100%);
+}
+
+.hero::after,
+.cockpit-hero::after,
+.cert-hero::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(50, 217, 255, 0.7), transparent);
+}
+
+.hero h1 {
+  max-width: 760px;
+  font-size: clamp(44px, 6.5vw, 82px);
+}
+
+.lead {
+  max-width: 690px;
+}
+
+.hero-badges span {
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.button,
+.drive-link,
+.cockpit-card-actions a,
+.social-actions a {
+  border-radius: 8px;
+  transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+}
+
+.button:hover,
+.drive-link:hover,
+.cockpit-card-actions a:hover,
+.social-actions a:hover,
+.quick-access a:hover {
+  transform: translateY(-2px);
+}
+
+.portrait-frame {
+  min-height: clamp(400px, 48vw, 570px);
+  border-radius: 18px;
+  box-shadow: 0 34px 90px rgba(0, 0, 0, 0.3);
+}
+
+.teacher-photo {
+  min-height: clamp(400px, 48vw, 570px);
+}
+
+.hero-logo {
+  width: 72px;
+  height: 72px;
+}
+
+.profile-card,
+.stats-grid div,
+.cert-summary {
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.stats-grid {
+  gap: 10px;
+}
+
+.stats-grid div {
+  min-height: 92px;
+}
+
+.quick-access {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: -54px;
+  margin-bottom: 0;
+}
+
+.quick-access a {
+  display: grid;
+  gap: 4px;
+  min-height: 94px;
+  padding: 18px;
+  border: 1px solid rgba(0, 143, 194, 0.16);
+  border-radius: 12px;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.96), rgba(235, 250, 255, 0.96)),
+    #fff;
+  box-shadow: 0 18px 46px rgba(6, 26, 46, 0.12);
+}
+
+.quick-access a::before {
+  content: "";
+  width: 34px;
+  height: 6px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--cyan), var(--green));
+}
+
+.quick-access span {
+  color: var(--accent);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.quick-access strong {
+  color: var(--accent-dark);
+  font-size: 17px;
+  line-height: 1.35;
+}
+
+.cockpit-spotlight {
+  grid-template-columns: minmax(280px, 0.48fr) minmax(0, 1fr);
+  gap: clamp(24px, 4.6vw, 60px);
+  padding-top: clamp(58px, 7vw, 90px);
+  padding-bottom: clamp(58px, 7vw, 90px);
+  background:
+    linear-gradient(110deg, rgba(255, 255, 255, 0.98), rgba(235, 249, 255, 0.88)),
+    #fff;
+}
+
+.quick-spotlight {
+  background:
+    linear-gradient(110deg, rgba(232, 250, 244, 0.92), rgba(255, 255, 255, 0.96)),
+    #fff;
+}
+
+.cockpit-spotlight img,
+.cockpit-preview img,
+.schedule-image img,
+.drive-embed,
+.mini-drive-embed,
+.evidence-showcase img,
+.certificate-card img {
+  border-radius: 12px;
+}
+
+.section {
+  padding-top: clamp(58px, 7vw, 96px);
+  padding-bottom: clamp(58px, 7vw, 96px);
+}
+
+.band {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.88), rgba(244, 251, 255, 0.9)),
+    radial-gradient(circle at 100% 0%, rgba(50, 217, 255, 0.08), transparent 30%);
+}
+
+.section-heading {
+  display: grid;
+  gap: 8px;
+  max-width: 820px;
+  margin-bottom: 26px;
+}
+
+.section-label {
+  color: #0082b0;
+}
+
+.section-heading h2,
+.cockpit-spotlight h2,
+.cockpit-hero-copy h1,
+.cert-hero h1 {
+  letter-spacing: 0;
+}
+
+.info-grid article,
+.standard-grid article,
+.evidence-list article,
+.archive-summary article,
+.innovation-grid article,
+.evidence-media-grid article,
+.research-card,
+.observation-card,
+.subjects,
+.timeline,
+.score-card,
+.pa-domains,
+.sar-detail-grid article,
+.schedule-feature,
+.learning-media-panel,
+.media-follow,
+.cockpit-feature-grid article,
+.cockpit-explain,
+.cockpit-flow,
+.certificate-card {
+  border-radius: 12px;
+  border-color: rgba(8, 49, 78, 0.12);
+  box-shadow: 0 14px 42px rgba(6, 26, 46, 0.07);
+}
+
+.info-grid article:hover,
+.standard-grid article:hover,
+.evidence-list article:hover,
+.innovation-grid article:hover,
+.certificate-card:hover {
+  border-color: rgba(0, 143, 194, 0.28);
+}
+
+.updates-strip {
+  align-items: start;
+  background: rgba(255, 255, 255, 0.88);
+}
+
+.updates-grid article {
+  border-radius: 12px;
+  background: #fff;
+}
+
+.schedule-feature,
+.learning-media-panel,
+.media-follow {
+  background:
+    linear-gradient(135deg, rgba(50, 217, 255, 0.12), rgba(31, 200, 148, 0.08)),
+    #fff;
+}
+
+.drive-embed {
+  min-height: 440px;
+  background:
+    linear-gradient(135deg, rgba(233, 247, 255, 0.9), rgba(255, 255, 255, 0.92));
+}
+
+.drive-folder-list a,
+.mini-folder-list a,
+.folder-link {
+  border-radius: 8px;
+}
+
+.score-card.featured {
+  background:
+    linear-gradient(135deg, rgba(50, 217, 255, 0.2), rgba(31, 200, 148, 0.1)),
+    #061a2e;
+}
+
+.innovation-grid article::after {
+  border-radius: 18px;
+}
+
+.cockpit-hero,
+.cert-hero {
+  position: relative;
+  overflow: hidden;
+  padding-top: clamp(58px, 8vw, 108px);
+  padding-bottom: clamp(58px, 8vw, 108px);
+}
+
+.cockpit-feature-grid span {
+  border-radius: 8px;
+}
+
+.cert-hero {
+  background:
+    radial-gradient(circle at 82% 18%, rgba(50, 217, 255, 0.24), transparent 29%),
+    linear-gradient(135deg, #06172a, #075c79);
+}
+
+.certificate-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.certificate-card h3 {
+  overflow-wrap: anywhere;
+}
+
+.footer {
+  background:
+    linear-gradient(90deg, rgba(50, 217, 255, 0.14), transparent 55%),
+    #061a2e;
+}
+
+@media (max-width: 1120px) {
+  .brand {
+    min-width: 230px;
+  }
+
+  .innovation-grid,
+  .certificate-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 960px) {
+  .site-header {
+    gap: 10px;
+    align-items: stretch;
+  }
+
+  .brand {
+    min-width: 0;
+  }
+
+  .nav {
+    justify-content: flex-start;
+    margin-inline: -4px;
+    padding-bottom: 6px;
+  }
+
+  .hero {
+    min-height: auto;
+    grid-template-columns: 1fr;
+    padding-top: 42px;
+    padding-bottom: 78px;
+  }
+
+  .quick-access {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin-top: -42px;
+  }
+
+  .cockpit-spotlight {
+    grid-template-columns: 1fr;
+  }
+
+  .quick-spotlight img {
+    order: 0;
+  }
+
+  .updates-strip {
+    grid-template-columns: 1fr;
+  }
+
+  .updates-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .drive-folder-list,
+  .archive-summary,
+  .standard-grid,
+  .sar-detail-grid,
+  .cockpit-feature-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 680px) {
+  .site-header {
+    position: sticky;
+    padding-top: 10px;
+    padding-bottom: 8px;
+  }
+
+  .school-mark {
+    width: 40px;
+    height: 40px;
+  }
+
+  .brand {
+    gap: 10px;
+  }
+
+  .brand strong {
+    font-size: 15px;
+  }
+
+  .brand small {
+    font-size: 11px;
+  }
+
+  .nav {
+    gap: 6px;
+    font-size: 13px;
+  }
+
+  .nav a {
+    padding: 7px 9px;
+    background: rgba(255, 255, 255, 0.54);
+  }
+
+  .hero,
+  .cockpit-hero,
+  .cert-hero,
+  .section,
+  .cockpit-spotlight,
+  .updates-strip,
+  .quick-access,
+  .footer {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .hero {
+    gap: 28px;
+    padding-top: 32px;
+    padding-bottom: 66px;
+  }
+
+  .hero h1 {
+    font-size: clamp(38px, 12vw, 48px);
+  }
+
+  .lead,
+  .cockpit-hero-copy p,
+  .cert-hero p:not(.section-label) {
+    font-size: 17px;
+  }
+
+  .hero-actions,
+  .cockpit-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .button,
+  .drive-link {
+    width: 100%;
+  }
+
+  .portrait-frame,
+  .teacher-photo {
+    min-height: 360px;
+  }
+
+  .hero-logo {
+    width: 58px;
+    height: 58px;
+  }
+
+  .stats-grid,
+  .quick-access,
+  .updates-grid,
+  .drive-folder-list,
+  .archive-summary,
+  .standard-grid,
+  .sar-detail-grid,
+  .cockpit-feature-grid,
+  .innovation-grid,
+  .certificate-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .quick-access {
+    gap: 10px;
+    margin-top: -32px;
+  }
+
+  .quick-access a {
+    min-height: auto;
+    padding: 15px;
+  }
+
+  .cockpit-spotlight h2,
+  .section-heading h2,
+  .cockpit-hero-copy h1,
+  .cert-hero h1 {
+    font-size: clamp(30px, 10vw, 42px);
+  }
+
+  .schedule-feature,
+  .learning-media-panel,
+  .media-follow,
+  .evidence-showcase {
+    padding: 18px;
+  }
+
+  .drive-embed iframe {
+    height: 420px;
+  }
+
+  .result-grid,
+  .media-links,
+  .info-grid,
+  .evidence-list,
+  .evidence-media-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pa-domains ol {
+    grid-template-columns: 1fr;
+  }
+
+  .footer {
+    gap: 12px;
+  }
+}
