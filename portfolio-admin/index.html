@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ระบบบันทึกผลงานครู | พิชญานนท์ วัจนสุนทร</title>
+    <meta name="description" content="ระบบหลังบ้านสำหรับบันทึก ค้นหา และเผยแพร่ผลงานครูเพื่อใช้ประกอบการเลื่อนเงินเดือน PA SAR และ e-Portfolio" />
+    <meta name="theme-color" content="#061a2e" />
+    <link rel="icon" type="image/png" href="../assets/school-logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <header class="admin-header">
+      <a class="brand" href="../index.html">
+        <img src="../assets/school-logo.png" alt="โลโก้โรงเรียนอนุบาลหนองหานวิทยายน" />
+        <span>
+          <strong>ระบบบันทึกผลงานครู</strong>
+          <small>Portfolio Records · PA/SAR/เลื่อนเงินเดือน</small>
+        </span>
+      </a>
+      <div class="header-actions">
+        <a href="../index.html">เปิด e-Portfolio</a>
+        <button id="signOutBtn" class="ghost hidden" type="button">ออกจากระบบ</button>
+      </div>
+    </header>
+
+    <main>
+      <section id="setupNotice" class="setup-notice hidden">
+        <h1>ยังไม่ได้เชื่อม Supabase</h1>
+        <p>คัดลอก `supabase-config.example.js` เป็น `supabase-config.js` แล้วใส่ Project URL และ anon key เพื่อเปิดใช้งานระบบจริง</p>
+      </section>
+
+      <section id="authView" class="auth-shell">
+        <div class="auth-copy">
+          <span>Teacher Portfolio Database</span>
+          <h1>บันทึกผลงานทุกปีให้ค้นง่ายตอนประเมิน</h1>
+          <p>
+            เก็บผลงานพร้อมตัวชี้วัด PA, มาตรฐาน SAR, ปีการศึกษา, สถานะ และลิงก์หลักฐาน
+            เพื่อใช้สรุปเลื่อนเงินเดือนและเลือกเผยแพร่ใน e-Portfolio
+          </p>
+          <ul>
+            <li>ค้นหา/กรองตามปี หมวด ตัวชี้วัด และสถานะ</li>
+            <li>แยก draft, ready, published, archived</li>
+            <li>เผยแพร่เฉพาะรายการที่พร้อมขึ้นหน้าเว็บ</li>
+          </ul>
+        </div>
+        <form id="loginForm" class="auth-card">
+          <h2>เข้าสู่ระบบ</h2>
+          <label>
+            อีเมล
+            <input name="email" type="email" autocomplete="email" required />
+          </label>
+          <label>
+            รหัสผ่าน
+            <input name="password" type="password" autocomplete="current-password" required />
+          </label>
+          <button class="primary" type="submit">เข้าสู่ระบบ</button>
+          <p id="authMessage" class="form-message" role="status"></p>
+        </form>
+      </section>
+
+      <section id="appView" class="app-shell hidden">
+        <section class="dashboard">
+          <div>
+            <span>Portfolio Records</span>
+            <h1>คลังผลงานครูเพื่อเลื่อนเงินเดือน</h1>
+            <p>บันทึกผลงานพร้อมหลักฐาน ค้นคืนง่าย และเลือกเผยแพร่ใน e-Portfolio ได้เป็นระบบ</p>
+          </div>
+          <div class="summary-grid">
+            <article>
+              <span>ทั้งหมด</span>
+              <strong id="totalCount">0</strong>
+            </article>
+            <article>
+              <span>พร้อมใช้</span>
+              <strong id="readyCount">0</strong>
+            </article>
+            <article>
+              <span>เผยแพร่</span>
+              <strong id="publishedCount">0</strong>
+            </article>
+            <article>
+              <span>ปีล่าสุด</span>
+              <strong id="latestYear">-</strong>
+            </article>
+          </div>
+        </section>
+
+        <section class="workspace">
+          <form id="workForm" class="panel form-panel">
+            <div class="panel-heading">
+              <span id="formMode">บันทึกผลงานใหม่</span>
+              <button id="resetFormBtn" class="ghost" type="button">ล้างฟอร์ม</button>
+            </div>
+            <input type="hidden" name="id" />
+            <div class="form-grid">
+              <label>
+                ชื่อครู
+                <input name="teacher_name" value="นายพิชญานนท์ วัจนสุนทร" required />
+              </label>
+              <label>
+                ตำแหน่ง
+                <input name="position" value="ครูชำนาญการ" />
+              </label>
+              <label class="span-2">
+                ชื่อผลงาน
+                <input name="title" required placeholder="เช่น พัฒนาระบบ Teacher Cockpit SMT ป.4/2" />
+              </label>
+              <label>
+                วันที่ผลงาน
+                <input name="work_date" type="date" />
+              </label>
+              <label>
+                ปีการศึกษา
+                <input name="academic_year" required placeholder="2569" />
+              </label>
+              <label>
+                ภาคเรียน
+                <select name="semester">
+                  <option value="">ไม่ระบุ</option>
+                  <option>ภาคเรียนที่ 1</option>
+                  <option>ภาคเรียนที่ 2</option>
+                  <option>ตลอดปีการศึกษา</option>
+                </select>
+              </label>
+              <label>
+                ประเภทผลงาน
+                <select name="category" required>
+                  <option value="">เลือกประเภท</option>
+                  <option>งานสอนและการจัดการเรียนรู้</option>
+                  <option>นวัตกรรม/สื่อเทคโนโลยี</option>
+                  <option>วิจัยในชั้นเรียน</option>
+                  <option>ระบบดูแลช่วยเหลือผู้เรียน</option>
+                  <option>PLC/นิเทศ/ชุมชนการเรียนรู้</option>
+                  <option>อบรม/พัฒนาตนเอง</option>
+                  <option>เกียรติบัตร/รางวัล</option>
+                  <option>งานพิเศษ/พัสดุ/งบประมาณ</option>
+                </select>
+              </label>
+              <label>
+                ระดับผลงาน
+                <select name="work_level">
+                  <option value="">เลือกระดับ</option>
+                  <option>ห้องเรียน</option>
+                  <option>โรงเรียน</option>
+                  <option>เครือข่าย/กลุ่มโรงเรียน</option>
+                  <option>เขตพื้นที่</option>
+                  <option>จังหวัด</option>
+                  <option>ประเทศ</option>
+                </select>
+              </label>
+              <label>
+                ตัวชี้วัด PA
+                <select name="pa_indicator">
+                  <option value="">เลือกตัวชี้วัด</option>
+                  <option>ด้านการจัดการเรียนรู้</option>
+                  <option>ด้านการส่งเสริมและสนับสนุนการจัดการเรียนรู้</option>
+                  <option>ด้านการพัฒนาตนเองและวิชาชีพ</option>
+                  <option>องค์ประกอบที่ 2 การมีส่วนร่วม</option>
+                  <option>องค์ประกอบที่ 3 วินัย คุณธรรม จริยธรรม</option>
+                </select>
+              </label>
+              <label>
+                มาตรฐาน SAR
+                <select name="sar_standard">
+                  <option value="">เลือกมาตรฐาน</option>
+                  <option>มาตรฐานที่ 1 ผลลัพธ์ของการเรียนรู้</option>
+                  <option>มาตรฐานที่ 2 การบริหารจัดการสถานศึกษา</option>
+                  <option>มาตรฐานที่ 3 การจัดการเรียนรู้</option>
+                </select>
+              </label>
+              <label>
+                สถานะ
+                <select name="status">
+                  <option value="draft">draft - ร่าง</option>
+                  <option value="ready">ready - พร้อมใช้</option>
+                  <option value="published">published - เผยแพร่</option>
+                  <option value="archived">archived - เก็บถาวร</option>
+                </select>
+              </label>
+              <label>
+                ประเภทหลักฐาน
+                <select name="evidence_type">
+                  <option value="">เลือกประเภทหลักฐาน</option>
+                  <option>PDF</option>
+                  <option>รูปภาพ</option>
+                  <option>Google Drive</option>
+                  <option>เว็บไซต์/ระบบออนไลน์</option>
+                  <option>วิดีโอ</option>
+                  <option>เอกสารอื่น ๆ</option>
+                </select>
+              </label>
+              <label class="span-2">
+                ลิงก์หลักฐาน
+                <input name="evidence_url" type="url" placeholder="https://drive.google.com/..." />
+              </label>
+              <label class="span-2">
+                ลิงก์ภาพปก
+                <input name="cover_image_url" type="url" placeholder="ใช้เมื่ออยากให้แสดงภาพบน e-Portfolio" />
+              </label>
+              <label class="span-2">
+                คำค้น/แท็ก
+                <input name="tags" placeholder="PA1, SAR3, SMT, วิทยาการคำนวณ" />
+              </label>
+              <label class="span-2">
+                รายละเอียดผลงาน
+                <textarea name="description" rows="4" placeholder="สรุปแนวคิด กระบวนการ ผลลัพธ์ และการนำไปใช้"></textarea>
+              </label>
+              <label class="span-2">
+                หมายเหตุ
+                <textarea name="notes" rows="3"></textarea>
+              </label>
+              <label class="publish-toggle span-2">
+                <input name="public_on_profile" type="checkbox" />
+                เผยแพร่รายการนี้ใน e-Portfolio
+              </label>
+            </div>
+            <button class="primary" type="submit">บันทึกข้อมูล</button>
+            <p id="formMessage" class="form-message" role="status"></p>
+          </form>
+
+          <section class="panel list-panel">
+            <div class="panel-heading">
+              <span>ค้นหาและจัดการผลงาน</span>
+              <button id="refreshBtn" class="ghost" type="button">รีเฟรช</button>
+            </div>
+            <div class="filters">
+              <input id="searchInput" placeholder="ค้นหาชื่อผลงาน รายละเอียด หรือแท็ก" />
+              <select id="yearFilter">
+                <option value="">ทุกปีการศึกษา</option>
+              </select>
+              <select id="statusFilter">
+                <option value="">ทุกสถานะ</option>
+                <option value="draft">draft</option>
+                <option value="ready">ready</option>
+                <option value="published">published</option>
+                <option value="archived">archived</option>
+              </select>
+            </div>
+            <div id="workList" class="work-list"></div>
+          </section>
+        </section>
+      </section>
+    </main>
+  </body>
+</html>

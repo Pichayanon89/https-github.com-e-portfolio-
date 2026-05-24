@@ -20,6 +20,7 @@
 - แก้ลิงก์และรายการที่เปลี่ยนบ่อยใน `data/site-data.json`
 - ดูคู่มือแก้ไขใน `EDITING.md`
 - ใช้ Google Sheet CMS ได้จากคู่มือ `GOOGLE_SHEET_CMS.md`
+- ระบบบันทึกผลงานครูแบบ Supabase อยู่ใน `portfolio-admin/` และคู่มือ `SUPABASE_PORTFOLIO_APP.md`
 
 ## แหล่งข้อมูลที่ใช้
 
