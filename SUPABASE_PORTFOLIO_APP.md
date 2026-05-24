@@ -19,7 +19,7 @@
 5. ไปที่ `Authentication` > `Providers`
 6. เปิด Email login
 7. ไปที่ `Authentication` > `Users`
-8. เพิ่ม user อีเมลของครู
+8. เพิ่ม user อีเมลของครู: `pichayanon@udonthani3.go.th`
 9. ไปที่ `Project Settings` > `API`
 10. คัดลอก:
     - Project URL
