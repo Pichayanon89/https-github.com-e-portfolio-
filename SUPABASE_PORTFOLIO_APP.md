@@ -50,6 +50,17 @@ window.PORTFOLIO_SUPABASE = {
 
 หลังแก้แล้ว commit และ push ขึ้น GitHub
 
+## การส่งรหัสผ่าน/ตั้งรหัสผ่าน
+
+ไม่ควรส่งรหัสผ่านจริงทางอีเมล ให้ใช้วิธีส่งลิงก์ตั้งรหัสผ่านแทน
+
+ทำได้ 2 วิธี:
+
+1. ใน Supabase ไปที่ `Authentication` > `Users` แล้วใช้เมนู Invite/Send recovery email
+2. เปิดหน้า `portfolio-admin/` กรอกอีเมล แล้วกด `ส่งลิงก์ตั้งรหัสผ่านทางอีเมล`
+
+ถ้าใช้ปุ่มในหน้าเว็บ ต้องตั้งค่า Supabase ให้เรียบร้อยก่อน และควรเพิ่ม URL ของเว็บใน `Authentication` > `URL Configuration` > `Redirect URLs`
+
 ## วิธีเปิดใช้งาน
 
 เมื่อ deploy แล้ว เปิด:

@@ -256,6 +256,26 @@ textarea:focus {
   box-shadow: 0 14px 36px rgba(50, 217, 255, 0.18);
 }
 
+.secondary-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 42px;
+  margin-top: 10px;
+  padding: 8px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  border-radius: 8px;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.08);
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.secondary-action:hover {
+  background: rgba(255, 255, 255, 0.14);
+}
+
 .form-message {
   min-height: 24px;
   margin: 12px 0 0;

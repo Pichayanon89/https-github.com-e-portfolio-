@@ -9,6 +9,7 @@ const els = {
   authView: document.querySelector("#authView"),
   appView: document.querySelector("#appView"),
   loginForm: document.querySelector("#loginForm"),
+  resetPasswordBtn: document.querySelector("#resetPasswordBtn"),
   authMessage: document.querySelector("#authMessage"),
   signOutBtn: document.querySelector("#signOutBtn"),
   workForm: document.querySelector("#workForm"),
@@ -262,6 +263,29 @@ async function login(event) {
   await loadWorks();
 }
 
+async function sendPasswordReset() {
+  if (!state.client) {
+    els.authMessage.textContent = "ยังไม่ได้เชื่อม Supabase จึงส่งอีเมลตั้งรหัสผ่านไม่ได้";
+    return;
+  }
+
+  const email = els.loginForm.elements.email.value.trim();
+  if (!email) {
+    els.authMessage.textContent = "กรุณากรอกอีเมลก่อนส่งลิงก์ตั้งรหัสผ่าน";
+    els.loginForm.elements.email.focus();
+    return;
+  }
+
+  const redirectTo = `${window.location.origin}${window.location.pathname}`;
+  const { error } = await state.client.auth.resetPasswordForEmail(email, { redirectTo });
+  if (error) {
+    els.authMessage.textContent = `ส่งอีเมลไม่สำเร็จ: ${error.message}`;
+    return;
+  }
+
+  els.authMessage.textContent = "ส่งลิงก์ตั้งรหัสผ่านไปที่อีเมลแล้ว กรุณาตรวจ inbox หรือ spam";
+}
+
 async function init() {
   await loadConfig();
   showSetupNotice();
@@ -294,6 +318,7 @@ async function loadConfig() {
 }
 
 els.loginForm.addEventListener("submit", login);
+els.resetPasswordBtn.addEventListener("click", sendPasswordReset);
 els.workForm.addEventListener("submit", saveWork);
 els.resetFormBtn.addEventListener("click", () => {
   setForm(null);
