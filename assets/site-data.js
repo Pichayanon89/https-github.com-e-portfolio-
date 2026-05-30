@@ -1,5 +1,91 @@
 (async () => {
   const dataUrl = "data/site-data.json";
+  const storageKey = "portfolio-theme";
+
+  function initTheme() {
+    const root = document.documentElement;
+    const toggle = document.querySelector(".theme-toggle");
+    const icon = toggle?.querySelector(".theme-toggle-icon");
+    const storage = (() => {
+      try {
+        return window.localStorage;
+      } catch (_) {
+        return null;
+      }
+    })();
+    const savedTheme = storage?.getItem(storageKey);
+    const preferredTheme =
+      window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    const initialTheme = savedTheme || preferredTheme;
+
+    function applyTheme(theme) {
+      const isDark = theme === "dark";
+      root.dataset.theme = theme;
+      if (toggle) {
+        toggle.setAttribute("aria-pressed", String(isDark));
+        toggle.setAttribute("title", isDark ? "เปลี่ยนเป็นโหมดสว่าง" : "เปลี่ยนเป็นโหมดมืด");
+      }
+      if (icon) icon.textContent = isDark ? "☀" : "☾";
+    }
+
+    applyTheme(initialTheme);
+
+    toggle?.addEventListener("click", () => {
+      const nextTheme = root.dataset.theme === "dark" ? "light" : "dark";
+      try {
+        storage?.setItem(storageKey, nextTheme);
+      } catch (_) {
+        // Theme still changes for this page view if browser storage is unavailable.
+      }
+      applyTheme(nextTheme);
+    });
+  }
+
+  function initScrollReveal() {
+    const targets = document.querySelectorAll(
+      [
+        ".hero-copy",
+        ".hero-visual",
+        ".quick-access a",
+        ".cockpit-spotlight",
+        ".updates-strip",
+        ".section-heading",
+        ".section article",
+        ".timeline",
+        ".drive-embed",
+        ".media-follow",
+        ".cockpit-hero-copy",
+        ".cockpit-preview",
+        ".cert-hero > *",
+      ].join(", ")
+    );
+
+    if (!targets.length) return;
+
+    if (!("IntersectionObserver" in window)) {
+      targets.forEach((target) => target.classList.add("is-visible"));
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        });
+      },
+      { rootMargin: "0px 0px -8% 0px", threshold: 0.12 }
+    );
+
+    targets.forEach((target, index) => {
+      target.classList.add("reveal-on-scroll");
+      target.style.transitionDelay = `${Math.min(index % 6, 5) * 45}ms`;
+      observer.observe(target);
+    });
+  }
+
+  initTheme();
 
   async function loadJson(url) {
     try {
@@ -158,9 +244,11 @@
   }
 
   const siteData = await loadSiteData();
-  if (!siteData) return;
+  if (siteData) {
+    updateLinks(siteData.links);
+    renderLearningFolders(siteData.learningMediaFolders);
+    renderUpdates(siteData.latestUpdates);
+  }
 
-  updateLinks(siteData.links);
-  renderLearningFolders(siteData.learningMediaFolders);
-  renderUpdates(siteData.latestUpdates);
+  initScrollReveal();
 })();

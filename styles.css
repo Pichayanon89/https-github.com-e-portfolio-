@@ -12,6 +12,29 @@
   --sky: #e5f5ff;
   --leaf: #e4f8ef;
   --shadow: 0 24px 80px rgba(7, 26, 47, 0.18);
+  --header-bg: rgba(238, 246, 251, 0.9);
+  --glass-bg: rgba(255, 255, 255, 0.76);
+  --glass-line: rgba(212, 228, 239, 0.9);
+}
+
+html[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #07111f;
+  --ink: #e9f6ff;
+  --muted: #a8bdd0;
+  --line: rgba(137, 181, 211, 0.24);
+  --paper: rgba(12, 29, 48, 0.86);
+  --accent: #38d9ff;
+  --accent-dark: #dff8ff;
+  --cyan: #4ee4ff;
+  --green: #4ce0b1;
+  --gold: #ffe06f;
+  --sky: rgba(15, 41, 64, 0.9);
+  --leaf: rgba(18, 61, 50, 0.72);
+  --shadow: 0 28px 90px rgba(0, 0, 0, 0.45);
+  --header-bg: rgba(7, 17, 31, 0.78);
+  --glass-bg: rgba(15, 37, 59, 0.68);
+  --glass-line: rgba(137, 181, 211, 0.24);
 }
 
 * {
@@ -30,6 +53,14 @@ body {
     linear-gradient(180deg, rgba(255,255,255,0.42), rgba(255,255,255,0)),
     var(--bg);
   line-height: 1.7;
+  transition: background-color 220ms ease, color 220ms ease;
+}
+
+html[data-theme="dark"] body {
+  background:
+    radial-gradient(circle at 80% 0%, rgba(56, 217, 255, 0.11), transparent 28%),
+    radial-gradient(circle at 10% 90%, rgba(25, 197, 138, 0.1), transparent 26%),
+    var(--bg);
 }
 
 a {
@@ -46,8 +77,8 @@ a {
   justify-content: space-between;
   gap: 24px;
   padding: 16px clamp(20px, 5vw, 72px);
-  background: rgba(238, 246, 251, 0.9);
-  border-bottom: 1px solid rgba(212, 228, 239, 0.9);
+  background: var(--header-bg);
+  border-bottom: 1px solid var(--glass-line);
   backdrop-filter: blur(18px);
 }
 
@@ -72,6 +103,10 @@ a {
   display: block;
 }
 
+.brand strong {
+  color: var(--ink);
+}
+
 .brand small {
   color: var(--muted);
   font-size: 12px;
@@ -89,6 +124,33 @@ a {
 
 .nav a:hover {
   color: #006f95;
+}
+
+.theme-toggle {
+  display: inline-grid;
+  place-items: center;
+  flex: 0 0 auto;
+  width: 42px;
+  height: 42px;
+  border: 1px solid rgba(0, 143, 194, 0.18);
+  border-radius: 999px;
+  color: var(--ink);
+  background: var(--glass-bg);
+  box-shadow: 0 12px 30px rgba(6, 26, 46, 0.08);
+  cursor: pointer;
+  transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+}
+
+.theme-toggle:hover,
+.theme-toggle:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 38px rgba(6, 26, 46, 0.16);
+  outline: none;
+}
+
+.theme-toggle-icon {
+  font-size: 18px;
+  line-height: 1;
 }
 
 .hero {
@@ -1842,8 +1904,8 @@ body::before {
 .nav {
   flex: 1 1 auto;
   gap: 8px;
-  overflow-x: auto;
-  flex-wrap: nowrap;
+  overflow-x: visible;
+  flex-wrap: wrap;
   justify-content: flex-end;
   padding: 2px 0 4px;
   scrollbar-width: thin;
@@ -2161,6 +2223,185 @@ body::before {
     #061a2e;
 }
 
+.button,
+.drive-link,
+.cockpit-card-actions a,
+.social-actions a,
+.folder-link,
+.nav a {
+  will-change: transform;
+}
+
+.button:active,
+.drive-link:active,
+.cockpit-card-actions a:active,
+.social-actions a:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.info-grid article,
+.standard-grid article,
+.evidence-list article,
+.archive-summary article,
+.innovation-grid article,
+.evidence-media-grid article,
+.research-card,
+.observation-card,
+.subjects,
+.timeline,
+.score-card,
+.pa-domains,
+.sar-detail-grid article,
+.schedule-feature,
+.learning-media-panel,
+.learning-hub-promo,
+.media-follow,
+.cockpit-feature-grid article,
+.cockpit-explain,
+.cockpit-flow,
+.certificate-card,
+.learning-review-grid article,
+.updates-grid article,
+.quick-access a {
+  transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease, background 220ms ease;
+}
+
+.info-grid article:hover,
+.standard-grid article:hover,
+.evidence-list article:hover,
+.archive-summary article:hover,
+.innovation-grid article:hover,
+.evidence-media-grid article:hover,
+.research-card:hover,
+.observation-card:hover,
+.subjects:hover,
+.timeline:hover,
+.score-card:hover,
+.pa-domains:hover,
+.sar-detail-grid article:hover,
+.schedule-feature:hover,
+.learning-media-panel:hover,
+.learning-hub-promo:hover,
+.media-follow:hover,
+.cockpit-feature-grid article:hover,
+.cockpit-explain:hover,
+.cockpit-flow:hover,
+.certificate-card:hover,
+.learning-review-grid article:hover,
+.updates-grid article:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 24px 62px rgba(6, 26, 46, 0.13);
+}
+
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 620ms ease, transform 620ms ease;
+}
+
+.reveal-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+html[data-theme="dark"] .site-header,
+html[data-theme="dark"] .updates-strip,
+html[data-theme="dark"] .quick-access a,
+html[data-theme="dark"] .cockpit-spotlight,
+html[data-theme="dark"] .quick-spotlight,
+html[data-theme="dark"] .band,
+html[data-theme="dark"] .schedule-feature,
+html[data-theme="dark"] .learning-media-panel,
+html[data-theme="dark"] .learning-hub-promo,
+html[data-theme="dark"] .media-follow,
+html[data-theme="dark"] .drive-embed,
+html[data-theme="dark"] .updates-grid article,
+html[data-theme="dark"] .certificate-card,
+html[data-theme="dark"] .cockpit-feature-grid article,
+html[data-theme="dark"] .cockpit-explain,
+html[data-theme="dark"] .cockpit-flow,
+html[data-theme="dark"] .learning-review-grid article,
+html[data-theme="dark"] .result-grid div,
+html[data-theme="dark"] .archive-summary article,
+html[data-theme="dark"] .standard-grid article,
+html[data-theme="dark"] .timeline,
+html[data-theme="dark"] .pa-domains,
+html[data-theme="dark"] .sar-detail-grid article,
+html[data-theme="dark"] .research-card,
+html[data-theme="dark"] .observation-card,
+html[data-theme="dark"] .subjects,
+html[data-theme="dark"] .score-card {
+  background:
+    linear-gradient(135deg, rgba(56, 217, 255, 0.08), rgba(25, 197, 138, 0.04)),
+    var(--paper);
+  border-color: var(--line);
+}
+
+html[data-theme="dark"] .nav a {
+  color: #c4d7e8;
+}
+
+html[data-theme="dark"] .nav a:hover,
+html[data-theme="dark"] .nav a:focus-visible {
+  color: #ffffff;
+  background: rgba(56, 217, 255, 0.12);
+}
+
+html[data-theme="dark"] .brand strong {
+  color: var(--ink);
+}
+
+html[data-theme="dark"] .brand small,
+html[data-theme="dark"] .section p,
+html[data-theme="dark"] .updates-grid p,
+html[data-theme="dark"] .certificate-card p,
+html[data-theme="dark"] .timeline-item p,
+html[data-theme="dark"] .learning-review-grid p,
+html[data-theme="dark"] .cockpit-flow li,
+html[data-theme="dark"] .cockpit-feature-grid p,
+html[data-theme="dark"] .cockpit-explain p {
+  color: var(--muted);
+}
+
+html[data-theme="dark"] .quick-access strong,
+html[data-theme="dark"] .media-links strong,
+html[data-theme="dark"] .result-grid strong,
+html[data-theme="dark"] .archive-summary strong,
+html[data-theme="dark"] .certificate-card h3,
+html[data-theme="dark"] .learning-review-grid h3 {
+  color: var(--ink);
+}
+
+html[data-theme="dark"] .button.secondary.light,
+html[data-theme="dark"] .drive-folder-list a,
+html[data-theme="dark"] .mini-folder-list a,
+html[data-theme="dark"] .media-links a {
+  color: var(--ink);
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--line);
+}
+
+html[data-theme="dark"] .drive-embed iframe,
+html[data-theme="dark"] .mini-drive-embed iframe {
+  filter: brightness(0.92) contrast(1.04);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+
+  .reveal-on-scroll {
+    opacity: 1;
+    transform: none;
+  }
+}
+
 @media (max-width: 1120px) {
   .brand {
     min-width: 230px;
@@ -2184,6 +2425,8 @@ body::before {
 
   .nav {
     justify-content: flex-start;
+    overflow-x: auto;
+    flex-wrap: nowrap;
     margin-inline: -4px;
     padding-bottom: 6px;
   }
@@ -2229,7 +2472,16 @@ body::before {
   .site-header {
     position: sticky;
     padding-top: 10px;
+    padding-right: 70px;
     padding-bottom: 8px;
+  }
+
+  .theme-toggle {
+    position: absolute;
+    top: 14px;
+    right: 18px;
+    width: 40px;
+    height: 40px;
   }
 
   .school-mark {
@@ -2252,6 +2504,7 @@ body::before {
   .nav {
     gap: 6px;
     font-size: 13px;
+    width: calc(100vw - 36px);
   }
 
   .nav a {
